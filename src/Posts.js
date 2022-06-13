@@ -4,7 +4,7 @@ function Posts({item}) {
   return (
     <>
         <tbody key={item.id}>
-                    <tr>
+                    <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.title}</td>
                     <td>{item.body}</td>
