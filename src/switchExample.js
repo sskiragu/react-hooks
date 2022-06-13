@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import Posts from './Posts'
 function App() {
 
     const [data, setData] = useState([])
@@ -15,15 +14,17 @@ function App() {
     console.log(data);
 
     const listItem  = data.map(item  => {
-            switch (resourceType) {
-                case 'posts':
-                    return <Posts item={item}/>
-                    // break;
-            
-                default:
-                    return "Invalid"
-                    // break;
-            }
+            return (
+                <tbody key={item.id}>
+                    <tr>
+                    <td>{item.id}</td>
+                    <td>{item.title}</td>
+                    <td>{item.body}</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+                </tbody>
+            )
         })
 
   return (
