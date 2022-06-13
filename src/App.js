@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
+import Comments from './Comments'
 import Posts from './Posts'
+import Users from './Users'
 function App() {
 
     const [data, setData] = useState([])
@@ -15,15 +17,22 @@ function App() {
     console.log(data);
 
     const listItem  = data.map(item  => {
+        let res;
             switch (resourceType) {
                 case 'posts':
-                    return <Posts item={item}/>
-                    // break;
-            
+                    res = <Posts item={item}/>
+                    break;
+                case 'users':
+                    res = <Users item={item}/>
+                    break;
+                case 'comments':
+                    res = <Comments item={item}/>
+                    break;
                 default:
-                    return "Invalid"
-                    // break;
+                    res = "Invalid"
+                    break;
             }
+            return res;
         })
 
   return (
